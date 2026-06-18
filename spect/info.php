@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local_shibboleth.php';
 if (!(file_exists("data/{$_SERVER['cn']}"))) {
     $a = new stdClass();
     $b = new stdClass();

@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local_shibboleth.php';
 require 'adminCheck.php';
 // New file
 if (!(file_exists("data/{$_SERVER['cn']}"))) {

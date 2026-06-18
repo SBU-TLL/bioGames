@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local_shibboleth.php';
 $a = new stdClass();
 $a -> studentData = json_decode($_REQUEST['studentData']);
 $a -> stats = json_decode($_REQUEST['stats']);

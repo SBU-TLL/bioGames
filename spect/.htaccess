@@ -1,6 +1,10 @@
-AuthType shibboleth
-ShibRequestSetting requireSession 1
-require valid-user
+# Production - use Shibboleth authentication
+# Note: Local development uses .env file instead (Herd uses Nginx, not Apache)
+<IfModule mod_shib>
+    AuthType shibboleth
+    ShibRequestSetting requireSession 1
+    require valid-user
+</IfModule>
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
