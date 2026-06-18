@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/local_shibboleth.php';
 if (!(file_exists("dataCh/{$_SERVER['cn']}"))) {
     file_put_contents("dataCh/".$_SERVER['cn'], 0);
 }
