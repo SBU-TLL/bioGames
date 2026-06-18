@@ -6,8 +6,10 @@
     require valid-user
 </IfModule>
 RewriteEngine On
+# Redirect to HTTPS if HTTPS is off AND the forwarded protocol is not HTTPS
 RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #For now, we comment out that we require our visitor be a student of stony brook university.
 # require affiliation student@stonybrook.edu
  DirectoryIndex index.html
