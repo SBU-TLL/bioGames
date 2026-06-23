@@ -1,2 +1,55 @@
-.DS_Store
 **/data*
+
+
+# === Core & Environment Secrets ===
+# Never commit credentials, API keys, or local configurations
+.env
+.env.local
+.env.*.local
+config.local.php
+
+# === Dependency Managers ===
+# These folders can be re-generated using composer.json / package.json
+vendor/
+node_modules/
+.pnp/
+.pnp.js
+
+# === Build Outputs & Assets ===
+# If you use build tools like Vite, Webpack, or Laravel Mix
+dist/
+build/
+.cache/
+.parcel-cache/
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Application Logs & Uploads ===
+# Ignore user-uploaded content and runtime logs
+logs/
+*.log
+uploads/
+storage/logs/
+storage/framework/
+
+# === IDEs & Editors ===
+# Specific to developers' local editing environments
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+
+# === OS Junk Files ===
+# System files created by Windows or macOS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
