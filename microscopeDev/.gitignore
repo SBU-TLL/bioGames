@@ -1,0 +1,4 @@
+api/
+*.psd
+*.swp
+.DS_Store
