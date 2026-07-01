@@ -53,3 +53,11 @@ Desktop.ini
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# === macOS AppleDouble resource forks (not covered above) ===
+._*
+**/._*
+
+# === Stray dumps / scratch files ===
+out.txt
+/temp

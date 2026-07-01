@@ -1,0 +1,23 @@
+# DDEV override: local-dev Shibboleth auth simulation for the bioGames apps.
+# Lives under .ddev/ — never deployed. APP_ENV gates the mock; defaults to
+# "production" off-DDEV. MOCK_* seed the attrs the apps read (cn=netID; givenName/nickname/sn).
+web_environment:
+  - APP_ENV=local
+  - MOCK_CN=teststudent
+  - MOCK_MAIL=teststudent@stonybrook.edu
+  - MOCK_GIVENNAME=Test
+  - MOCK_NICKNAME=Test
+  - MOCK_SN=Student
+
+# The per-game writer.php/info.php do file_put_contents("data/<cn>"), but the
+# data/ dirs are gitignored (**/data*) and absent on a fresh clone, so the
+# writes silently fail (PHP warning, no save). Create them writable on start.
+# Dev-only convenience; never deployed (lives under .ddev/).
+hooks:
+  post-start:
+    - exec: |
+        for d in BlankGame centrifuge cylinder dnafp leaderboard microPipette pH pHmeter spect vernier; do
+          mkdir -p "/var/www/html/$d/data"
+        done
+        mkdir -p /var/www/html/microPipette/dataCh
+        chown -R www-data:www-data /var/www/html/*/data /var/www/html/microPipette/dataCh 2>/dev/null || true
